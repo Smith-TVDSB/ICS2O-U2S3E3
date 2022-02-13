@@ -3,8 +3,8 @@ import student
 
 
 
-def test_simple_later():
-    input_values=['75']
+def test_simple_number():
+    input_values=['7']
     output=[]
 
     def mock_input(s=None):
@@ -20,48 +20,12 @@ def test_simple_later():
 
     student.main()
 
-    assert "b" in output[1].lower()
+    assert "7" in output[1].lower()
 
-def test_simple_fail():
-    input_values=['30']
-    output=[]
-
-    def mock_input(s=None):
-        if s is not None:
-            output.append(s)
-            return input_values.pop(0)
-        else:
-            output.append("")
-            return input_values.pop(0)
-    
-    student.input = mock_input
-    student.print = lambda s : output.append(s)
-
-    student.main()
-
-    assert "f" in output[1].lower()
-
-def test_max():
-    input_values=['100']
-    output=[]
-
-    def mock_input(s=None):
-        if s is not None:
-            output.append(s)
-            return input_values.pop(0)
-        else:
-            output.append("")
-            return input_values.pop(0)
-    
-    student.input = mock_input
-    student.print = lambda s : output.append(s)
-
-    student.main()
-
-    assert "a" in output[1].lower()
-
-def test_all_fail():
-    for i in range(0,49):
+def test_all_num():
+    for i in range(1,100):
+        if i % 3 == 0 or i % 5 == 0:
+            continue
         input_values=[str(i)]
         output=[]
 
@@ -78,10 +42,12 @@ def test_all_fail():
 
         student.main()
 
-        assert "f" in output[1].lower()
+        assert str(i) in output[1].lower()
 
-def test_all_d():
-    for i in range(50,59):
+def test_all_buzz():
+    for i in range(5,500,5):
+        if i % 15 == 0:
+            continue
         input_values=[str(i)]
         output=[]
 
@@ -98,10 +64,12 @@ def test_all_d():
 
         student.main()
 
-        assert "d" in output[1].lower()
+        assert "buzz" in output[1].lower()
 
-def test_all_c():
-    for i in range(60,69):
+def test_all_fizz():
+    for i in range(3,500,3):
+        if i % 15 == 0:
+            continue
         input_values=[str(i)]
         output=[]
 
@@ -118,10 +86,10 @@ def test_all_c():
 
         student.main()
 
-        assert "c" in output[1].lower()
+        assert "fizz" in output[1].lower()
 
-def test_all_b():
-    for i in range(70,79):
+def test_all_fizzbuzz():
+    for i in range(15,500,15):
         input_values=[str(i)]
         output=[]
 
@@ -138,25 +106,4 @@ def test_all_b():
 
         student.main()
 
-        assert "b" in output[1].lower()
-
-
-def test_all_a():
-    for i in range(80,99):
-        input_values=[str(i)]
-        output=[]
-
-        def mock_input(s=None):
-            if s is not None:
-                output.append(s)
-                return input_values.pop(0)
-            else:
-                output.append("")
-                return input_values.pop(0)
-        
-        student.input = mock_input
-        student.print = lambda s : output.append(s)
-
-        student.main()
-
-        assert "a" in output[1].lower()
+        assert "fizz" in output[1].lower() and "buzz" in output[1].lower()

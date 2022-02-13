@@ -4,15 +4,23 @@
 Edit the file named "student.py".  
 You should only use one print statement, otherwise use the input statement for user instructions.  
   
-Create a program that lets the user enter their mark as a percentage. The program then displays their mark as a letter grade.
-  
-| Letter Grade | Percent  |  
-|--------------|----------|  
-|       A      |   >80%   |  
-|       B      |  70-79%  |
-|       C      |  60-69%  |
-|       D      |  50-59%  |
-|       F      |   <50%   |  
+Write a program that takes in one number, then:  
+outputs the word “fizz” if the number is divisible by 3,  
+Outputs “buzz” if the number is divisible by 5,  
+Outputs “fizzbuzz” if the number entered is divisible by both 3 and 5,  
+Outputs the number if none of the other cases are true.  
+
+###Examples:
+|Input  |Output |
+|-------|-------|
+| 2     | 2     |
+| 3     | fizz  |
+| 4     | 4     |
+| 5     | buzz  |
+| 12    | fizz  |
+| 13    | 13    |
+| 14    | 14    |
+| 15    |fizzbuzz|    
 
 
 ## Check your work
