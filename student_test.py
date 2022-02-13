@@ -20,7 +20,7 @@ def test_simple_number():
 
     student.main()
 
-    assert "7" in output[1].lower()
+    assert 7 == output[1]
 
 def test_all_num():
     for i in range(1,100):
@@ -42,7 +42,7 @@ def test_all_num():
 
         student.main()
 
-        assert str(i) in output[1].lower()
+        assert i == output[1]
 
 def test_all_buzz():
     for i in range(5,500,5):
